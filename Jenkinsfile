@@ -22,5 +22,13 @@ pipeline {
                 }
             }
         }
+        stage('Deploy') {
+            steps {
+                sh 'kubectl set image deployment/producer producer=$DOCKERHUB_USER/producer:$BUILD_NUMBER'
+                sh 'kubectl set image deployment/consumer consumer=$DOCKERHUB_USER/consumer:$BUILD_NUMBER'
+                sh 'kubectl rollout status deployment/producer'
+                sh 'kubectl rollout status deployment/consumer'
+            }
+        }
     }
 }
