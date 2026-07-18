@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build Imags') {
             steps {
-                sh 'docker biuld -t $DOCKERHUB_USER/producer:$BUILD_NUMBER ./producer'
+                sh 'docker build -t $DOCKERHUB_USER/producer:$BUILD_NUMBER ./producer'
                 sh 'docker build -t $DOCKERHUB_USER/consumer:$BUILD_NUMBER ./consumer'
             }
         }
