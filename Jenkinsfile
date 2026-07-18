@@ -7,9 +7,9 @@ pipeline {
         stage('Checkout') {
             steps { checkout scm }
         }
-        stage('Build Images') {
+        stage('Build Imags') {
             steps {
-                sh 'docker build -t $DOCKERHUB_USER/producer:$BUILD_NUMBER ./producer'
+                sh 'docker biuld -t $DOCKERHUB_USER/producer:$BUILD_NUMBER ./producer'
                 sh 'docker build -t $DOCKERHUB_USER/consumer:$BUILD_NUMBER ./consumer'
             }
         }
