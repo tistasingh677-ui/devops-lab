@@ -34,7 +34,7 @@ def send():
 
 @app.route("/health")
 def health():
-    return jsonify({"status": "ok" , "version": "2"}), 500
+    return jsonify({"status": "ok" , "version": "2"})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
